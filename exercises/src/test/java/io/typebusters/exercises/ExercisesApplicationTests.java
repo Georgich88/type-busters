@@ -1,11 +1,15 @@
 package io.typebusters.exercises;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 
-@SpringBootTest
-@EnableMongoRepositories(basePackages = {"io.typebusters.exercises.repositories"})
+@DataMongoTest
+@ActiveProfiles("test")
+@ComponentScan({"io.typebusters.exercises.components"})
+@TestPropertySource(locations = "/application-test.properties")
 public class ExercisesApplicationTests {
 
 	@Test
