@@ -1,5 +1,13 @@
 package io.typebusters.exercises.model.languages;
 
-public interface SubjectUnderStudy {
+import io.typebusters.exercises.model.topics.TopicUnderStudy;
+
+public interface SubjectUnderStudy<T> {
+
+	T getId();
+
+	TopicUnderStudy<T> addTopic(T id, String name);
+
+	boolean deleteTopic(T id);
 
 }

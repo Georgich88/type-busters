@@ -14,32 +14,32 @@ import io.typebusters.exercises.model.topics.Topic;
 import io.typebusters.exercises.model.topics.TopicUnderStudy;
 
 @Document("programming_languages")
-public class ProgrammingLanguage implements SubjectUnderStudy, Serializable {
-	
+public class ProgrammingLanguage implements SubjectUnderStudy<String>, Serializable {
+
 	private static final long serialVersionUID = -336931167214774010L;
-	
+
 	@Id
 	@NotBlank
 	private String id;
 	@NotBlank
 	private String name;
 	@NotNull
-	private List<TopicUnderStudy> topics;
+	private List<TopicUnderStudy<String>> topics;
 
 	// Constructors
-	
+
 	public ProgrammingLanguage() {
-		this.topics = new ArrayList<>();
+		this("", "");
 	}
-	
+
 	public ProgrammingLanguage(@NotBlank String id, @NotBlank String name) {
 		this.id = id.toLowerCase();
-		this.name = name;		
+		this.name = name;
 		this.topics = new ArrayList<>();
-	}	
-	
+	}
+
 	// Getters and setters
-	
+
 	public String getId() {
 		return id;
 	}
@@ -48,23 +48,28 @@ public class ProgrammingLanguage implements SubjectUnderStudy, Serializable {
 		this.id = id;
 	}
 
-	public List<TopicUnderStudy> getTopics() {
+	public List<TopicUnderStudy<String>> getTopics() {
 		return List.copyOf(topics);
 	}
 
-	public void setTopics(List<TopicUnderStudy> topics) {
+	public void setTopics(List<TopicUnderStudy<String>> topics) {
 		this.topics = List.copyOf(topics);
 	}
-	
+
+	@Override
 	public Topic addTopic(String id, String name) {
 		Topic topic = new Topic(id, name);
 		this.topics.add(topic);
 		return topic;
 	}
 
-	
+	@Override
+	public boolean deleteTopic(String id) {
+		return topics.removeIf(topic -> topic.getId().equals(id));
+	}
+
 	// Object inherited methods
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,16 +98,9 @@ public class ProgrammingLanguage implements SubjectUnderStudy, Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder
-			.append("ProgrammingLanguage [id=").append(id)
-			.append(", name=").append(name)
-			.append(", topics=").append(topics).append("]");
+		builder.append("ProgrammingLanguage [id=").append(id).append(", name=").append(name).append(", topics=")
+				.append(topics).append("]");
 		return builder.toString();
 	}
-	
-	
-	
-	
-	
 
 }
