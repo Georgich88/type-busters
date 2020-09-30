@@ -12,8 +12,8 @@ import org.springframework.test.context.TestPropertySource;
 @TestPropertySource(locations = "/application-test.properties")
 public class ExercisesApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

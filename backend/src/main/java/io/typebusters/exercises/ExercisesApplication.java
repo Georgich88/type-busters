@@ -10,8 +10,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @ComponentScan({"io.typebusters.exercises.components"})
 public class ExercisesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ExercisesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ExercisesApplication.class, args);
+    }
 
 }

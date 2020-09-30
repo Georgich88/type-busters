@@ -1,58 +1,57 @@
 package io.typebusters.exercises.model.exercises;
 
-import java.io.Serializable;
+import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotBlank;
-
-import org.springframework.data.annotation.Id;
+import java.io.Serializable;
 
 public class TypingExercise implements ExerciseUnderStudy<String>, Serializable {
 
-	private static final long serialVersionUID = -3677106373186522494L;
+    private static final long serialVersionUID = -3677106373186522494L;
 
-	@Id
-	@NotBlank
-	private String id;
+    @Id
+    @NotBlank
+    private String id;
 
-	@NotBlank
-	private String textToType;
+    @NotBlank
+    private String textToType;
 
-	// Constructors
+    // Constructors
 
-	public TypingExercise() {
-		this("");
-	}
+    public TypingExercise() {
+        this("");
+    }
 
-	public TypingExercise(@NotBlank String textToType) {
-		this("", textToType);
-	}
+    public TypingExercise(@NotBlank String textToType) {
+        this("", textToType);
+    }
 
-	public TypingExercise(@NotBlank String id, @NotBlank String textToType) {
-		this.id = id;
-		this.textToType = textToType;
-	}
+    public TypingExercise(@NotBlank String id, @NotBlank String textToType) {
+        this.id = id;
+        this.textToType = textToType;
+    }
 
-	// Getters and setters
+    // Getters and setters
 
-	@Override
-	public String getId() {
-		return id;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    @Override
+    public String getId() {
+        return id;
+    }
 
-	public String getTextToType() {
-		return textToType;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setTextToType(String textToType) {
-		this.textToType = textToType;
-	}
+    public String getTextToType() {
+        return textToType;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public void setTextToType(String textToType) {
+        this.textToType = textToType;
+    }
 
 }
