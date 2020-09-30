@@ -23,3 +23,14 @@
 hs_err_pid*
 /.metadata/
 exercises/bin/
+backend/src/main/resources/public/static/
+frontend/.settings/
+backend/mvnw.cmd
+backend/mvnw
+mvnw
+mvnw.cmd
+*.classpath
+.settings/
+frontend/node/npm
+frontend/node/npm.cmd
+.project
